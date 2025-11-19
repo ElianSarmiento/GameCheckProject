@@ -1,10 +1,11 @@
+import { Navbar } from '@/components/Navbar'
+
 export default function Home() {
   return (
     <div className='bg-background text-foreground min-h-screen'>
-      {/* <Navbar />
-      <ThemeToggle /> */}
+      <Navbar />
 
-      <main className='mx-auto max-w-6xl px-4 py-10'>
+      <main className='mx-auto max-w-6xl px-4 pb-10 pt-32'>
         {/* <GameSearchSection />
         <GameResultsGrid /> */}
       </main>
