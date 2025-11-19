@@ -1,24 +1,51 @@
 @import 'tailwindcss';
 
 @theme {
-  --container-padding: 1rem;
-  --container-padding-md: 1.5rem;
-  --container-padding-lg: 2rem;
+  --color-background: #050712;
+  --color-surface: #0d1224;
+  --color-card: #141a32;
+  --color-muted: #9aa3c7;
+  --color-foreground: #f5f8ff;
+  --color-accent: #58f5ff;
+
+  --font-sans: 'Geist', system-ui, -apple-system, sans-serif;
+  --font-mono: 'Geist Mono', ui-monospace, SFMono-Regular, monospace;
+
+  --radius-base: 1rem;
+  --radius-pill: 999px;
+  --shadow-card: 0 25px 80px -45px rgba(0, 0, 0, 0.9);
 }
 
 @layer base {
-  .container {
-    margin-inline: auto;
-    padding-inline: var(--container-padding);
+  :root {
+    color: var(--color-foreground);
+    background-color: var(--color-background);
   }
-  @media (min-width: 768px) {
-    .container {
-      padding-inline: var(--container-padding-md);
-    }
+
+  body {
+    font-family: var(--font-sans);
+    min-height: 100vh;
+    background:
+      radial-gradient(
+        circle at 20% 20%,
+        rgba(88, 245, 255, 0.18),
+        transparent 40%
+      ),
+      radial-gradient(
+        circle at 80% 0%,
+        rgba(93, 83, 255, 0.15),
+        transparent 45%
+      ),
+      var(--color-background);
+    color: var(--color-foreground);
   }
-  @media (min-width: 1024px) {
-    .container {
-      padding-inline: var(--container-padding-lg);
-    }
+
+  .glass-card {
+    border: 1px solid
+      color-mix(in srgb, var(--color-foreground) 8%, transparent);
+    background-color: color-mix(in srgb, var(--color-card) 92%, transparent);
+    border-radius: var(--radius-base);
+    box-shadow: var(--shadow-card);
+    backdrop-filter: blur(30px);
   }
 }

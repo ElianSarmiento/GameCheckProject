@@ -1,9 +1,14 @@
 export default function Home() {
   return (
-    <section className='py-24'>
-      <div className='container'>
-        <h1 className='text-3xl font-bold'>GameCheck Project</h1>
-      </div>
-    </section>
+    <div className='bg-background text-foreground min-h-screen'>
+      {/* <Navbar />
+      <ThemeToggle /> */}
+
+      <main className='mx-auto max-w-6xl px-4 py-10'>
+        {/* <GameSearchSection />
+        <GameResultsGrid /> */}
+      </main>
+      {/* <Footer /> */}
+    </div>
   )
 }
