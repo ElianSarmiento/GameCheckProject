@@ -2,6 +2,7 @@
 import Image from 'next/image'
 import clsx from 'clsx'
 import { useEffect, useState } from 'react'
+import { ThemeToggle } from './ThemeToggle'
 
 export const Navbar = () => {
   const [isScrolled, setIsScrolled] = useState(false)
@@ -38,6 +39,7 @@ export const Navbar = () => {
           />
           <span className='text-foreground'>GameCheck</span>
         </a>
+        <ThemeToggle />
       </div>
     </nav>
   )

@@ -1,12 +1,12 @@
 @import 'tailwindcss';
 
 @theme {
-  --color-background: #050712;
-  --color-surface: #0d1224;
-  --color-card: #141a32;
-  --color-muted: #9aa3c7;
-  --color-foreground: #f5f8ff;
-  --color-accent: #58f5ff;
+  --color-border: hsl(var(--border));
+  --color-background: hsl(var(--background));
+  --color-foreground: hsl(var(--foreground));
+  --color-primary: hsl(var(--primary));
+  --color-primary-foreground: hsl(var(--primary-foreground));
+  --color-card: hsl(var(--card));
 
   --font-sans: 'Geist', system-ui, -apple-system, sans-serif;
   --font-mono: 'Geist Mono', ui-monospace, SFMono-Regular, monospace;
@@ -18,8 +18,27 @@
 
 @layer base {
   :root {
+    --background: 210 40% 98%;
+    --foreground: 222 47% 11%;
+    --card: 0 0% 100%;
+    --primary: 250 47% 60%;
+    --border: 214 32% 91%;
     color: var(--color-foreground);
     background-color: var(--color-background);
+  }
+  .dark {
+    --background: 222 47% 4%;
+    --foreground: 213 31% 91%;
+    --card: 222 47% 8%;
+    --primary: 250 65% 65%;
+    --primary-foreground: 213 31% 91%;
+    --border: 217 33% 20%;
+  }
+  * {
+    border-color: var(--color-border);
+  }
+  html {
+    @apply scroll-smooth;
   }
 
   body {
