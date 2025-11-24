@@ -1,27 +1,8 @@
-import { useEffect, useState } from 'react'
+import { useTheme } from './ThemeContext'
 
 export const ThemeToggle = () => {
-  const [isDarkMode, setIsDarkMode] = useState(() => {
-    if (typeof window === 'undefined') return false
-    const storedTheme = localStorage.getItem('theme')
-    if (storedTheme) {
-      return storedTheme === 'dark'
-    }
-    return window.matchMedia('(max-width: 640px)').matches
-  })
+  const { isDarkMode, toggleTheme } = useTheme()
 
-  useEffect(() => {
-    if (isDarkMode) {
-      document.documentElement.classList.add('dark')
-    } else {
-      document.documentElement.classList.remove('dark')
-    }
-    localStorage.setItem('theme', isDarkMode ? 'dark' : 'light')
-  }, [isDarkMode])
-
-  const toggleTheme = () => {
-    setIsDarkMode(!isDarkMode)
-  }
   return (
     <label className='fixed top-6 right-6 z-50 inline-flex cursor-pointer items-center'>
       <input
