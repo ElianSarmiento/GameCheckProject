@@ -19,25 +19,32 @@ const ThemeContext = createContext<ThemeContextType | undefined>(undefined)
 
 // 3. Create the Provider component - this wraps your app and provides the theme state
 export function ThemeProvider({ children }: { children: ReactNode }) {
-  // Initialize state - check localStorage or use default based on screen size
-  const [isDarkMode, setIsDarkMode] = useState(() => {
-    if (typeof window === 'undefined') return false
+  // Initialize state - always start with false to match server render
+  const [isDarkMode, setIsDarkMode] = useState(false)
+  const [mounted, setMounted] = useState(false)
+
+  // After mount, check localStorage and set the actual theme
+  useEffect(() => {
+    setMounted(true)
     const storedTheme = localStorage.getItem('theme')
     if (storedTheme) {
-      return storedTheme === 'dark'
+      setIsDarkMode(storedTheme === 'dark')
+    } else {
+      const preferDark = window.matchMedia('(max-width: 640px)').matches
+      setIsDarkMode(preferDark)
     }
-    return window.matchMedia('(max-width: 640px)').matches
-  })
+  }, [])
 
   // Apply theme changes to the document and localStorage
   useEffect(() => {
+    if (!mounted) return
     if (isDarkMode) {
       document.documentElement.classList.add('dark')
     } else {
       document.documentElement.classList.remove('dark')
     }
     localStorage.setItem('theme', isDarkMode ? 'dark' : 'light')
-  }, [isDarkMode])
+  }, [isDarkMode, mounted])
 
   // Function to toggle between themes
   const toggleTheme = () => {

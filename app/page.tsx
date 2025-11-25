@@ -11,7 +11,7 @@ export default function Home() {
     <div className='relative min-h-screen text-white'>
       {/* Animated background */}
       <div style={{ width: '100%', height: '100vh', position: 'fixed' }}>
-        {isDarkMode ? <DarkVeil key={Date.now()} /> : <LightMode />}
+        {isDarkMode ? <DarkVeil /> : <LightMode />}
       </div>
 
       <Navbar />
