@@ -1,5 +1,7 @@
 @import 'tailwindcss';
 
+@custom-variant dark (&:is(.dark, .dark *));
+
 @theme {
   --color-border: hsl(var(--border));
   --color-background: hsl(var(--background));
@@ -44,7 +46,6 @@
   body {
     font-family: var(--font-sans);
     min-height: 100vh;
-    color: var(--color-foreground);
   }
 
   .glass-card {

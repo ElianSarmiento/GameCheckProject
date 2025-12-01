@@ -28,7 +28,7 @@ export const Navbar = () => {
       <div className='container flex items-center justify-between'>
         <a
           href='#hero'
-          className='flex items-center gap-3 text-xl font-bold text-white'
+          className='flex items-center gap-3 text-xl font-bold text-gray-900 dark:text-white'
         >
           <Image
             src='/logo.png'

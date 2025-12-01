@@ -4,11 +4,12 @@ import { ThemeToggle } from '@/components/ThemeToggle'
 import DarkVeil from '@/components/DarkVeil'
 import LightMode from '@/components/LightMode'
 import { useTheme } from '@/components/ThemeContext'
+import { GameSearch } from '@/components/GameSearch'
 
 export default function Home() {
   const { isDarkMode } = useTheme()
   return (
-    <div className='relative min-h-screen text-white'>
+    <div className='relative min-h-screen'>
       {/* Animated background */}
       <div style={{ width: '100%', height: '100vh', position: 'fixed' }}>
         {isDarkMode ? <DarkVeil /> : <LightMode />}
@@ -17,8 +18,8 @@ export default function Home() {
       <Navbar />
 
       <main className='mx-auto max-w-6xl px-4 pt-32 pb-10'>
-        {/* <GameSearchSection />
-        <GameResultsGrid /> */}
+        <GameSearch />
+        {/* <GameResultsGrid /> */}
       </main>
       {/* <Footer /> */}
     </div>
