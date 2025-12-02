@@ -14,13 +14,13 @@ import { useState } from 'react'
 export const GameSearch = () => {
   const [searchQuery, setSearchQuery] = useState('')
   return (
-    <div>
-      <div className='flex h-[46px] w-80 items-center gap-2 overflow-hidden rounded-[5px] border border-gray-500/30 bg-white pr-3 transition duration-300 focus-within:border-indigo-500 dark:border-gray-600 dark:bg-gray-800 dark:focus-within:border-blue-400'>
+    <div className='w-full max-w-2xl'>
+      <div className='flex h-[46px] w-full items-center gap-2 overflow-hidden rounded-[5px] border border-gray-500/30 bg-white pr-3 transition duration-300 focus-within:border-indigo-500 dark:border-gray-600 dark:bg-gray-800 dark:focus-within:border-blue-400'>
         <input
           value={searchQuery}
           onChange={e => setSearchQuery(e.target.value)}
           type='text'
-          placeholder='Search for products'
+          placeholder='Search for games on the market'
           className='h-full w-full bg-transparent pl-4 text-sm text-gray-900 placeholder-gray-500 outline-none dark:text-white dark:placeholder-gray-400'
         />
         <svg

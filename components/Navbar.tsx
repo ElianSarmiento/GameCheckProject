@@ -35,7 +35,7 @@ export const Navbar = () => {
             alt='GameCheck logo'
             width={65}
             height={65}
-            className='rounded-2xl border border-white/10 p-1'
+            className='h-12 w-12 rounded-2xl border border-white/10 p-1 sm:h-16 sm:w-16'
           />
           <span>GameCheck</span>
         </a>

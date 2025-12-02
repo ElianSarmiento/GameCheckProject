@@ -17,7 +17,7 @@ export default function Home() {
 
       <Navbar />
 
-      <main className='mx-auto max-w-6xl px-4 pt-32 pb-10'>
+      <main className='relative z-10 flex min-h-screen items-start justify-center px-4 pt-45'>
         <GameSearch />
         {/* <GameResultsGrid /> */}
       </main>
