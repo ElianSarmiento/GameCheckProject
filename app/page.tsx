@@ -5,6 +5,9 @@ import DarkVeil from '@/components/DarkVeil'
 import LightMode from '@/components/LightMode'
 import { useTheme } from '@/components/ThemeContext'
 import { GameSearch } from '@/components/GameSearch'
+import { GameCard } from '@/components/GameCard'
+import { GameGrid } from '@/components/GameGrid'
+import { mockGames } from '@/data/mockGames'
 
 export default function Home() {
   const { isDarkMode } = useTheme()
@@ -19,6 +22,7 @@ export default function Home() {
 
       <main className='relative z-10 flex min-h-screen items-start justify-center px-4 pt-45'>
         <GameSearch />
+        <GameGrid games={mockGames} />
         {/* <GameResultsGrid /> */}
       </main>
       {/* <Footer /> */}
