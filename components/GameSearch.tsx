@@ -1,5 +1,4 @@
 'use client'
-import { useState } from 'react'
 
 // TODO: Convert the HTML search bar to React component
 // Steps:
@@ -11,8 +10,13 @@ import { useState } from 'react'
 // 6. Add dark mode classes (dark:)
 // 7. Export the component
 
-export const GameSearch = () => {
-  const [searchQuery, setSearchQuery] = useState('')
+export const GameSearch = ({
+  searchQuery,
+  setSearchQuery
+}: {
+  searchQuery: string
+  setSearchQuery: (value: string) => void
+}) => {
   return (
     <div className='w-full max-w-2xl'>
       <div className='flex h-[46px] w-full items-center gap-2 overflow-hidden rounded-[5px] border border-gray-500/30 bg-white pr-3 transition duration-300 focus-within:border-indigo-500 dark:border-gray-600 dark:bg-gray-800 dark:focus-within:border-blue-400'>
