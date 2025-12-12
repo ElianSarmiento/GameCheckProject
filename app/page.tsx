@@ -7,13 +7,22 @@ import { useTheme } from '@/components/ThemeContext'
 import { GameSearch } from '@/components/GameSearch'
 import { GameCard } from '@/components/GameCard'
 import { GameGrid } from '@/components/GameGrid'
-import { mockGames } from '@/data/mockGames'
-import { useState } from 'react'
+import { useState, useEffect } from 'react'
+import { Game } from '@/data/mockGames'
 
 export default function Home() {
   const { isDarkMode } = useTheme()
   const [searchQuery, setSearchQuery] = useState('')
-  const filteredGames = mockGames.filter(game =>
+  const [games, setGames] = useState<Game[]>([])
+  useEffect(() => {
+    async function fetchGames() {
+      const response = await fetch('/api/games')
+      const data = await response.json()
+      setGames(data)
+    }
+    fetchGames()
+  }, [])
+  const filteredGames = games.filter(game =>
     game.title.toLowerCase().includes(searchQuery.toLowerCase())
   )
   return (
